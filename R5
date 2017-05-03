@@ -53,6 +53,7 @@ router ospf 10
     network 192.168.1.193 0.0.0.3 area 2
     network 192.168.1.197 0.0.0.3 area 2
     network 192.168.1.206 0.0.0.63 area 2
+    network 192.168.1.129 0.0.0.63 area 2
 
 end
 copy running-config startup-config
