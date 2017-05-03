@@ -43,7 +43,11 @@ interface fa0/0
     ip add 192.168.1.65 255.255.255.192
     no shut
     exit
-    
+
+router ospf 10
+    network 192.168.1.202 0.0.0.3 area 2
+    network 192.168.1.198 0.0.0.3 area 2
+
 end
 copy running-config startup-config
 
