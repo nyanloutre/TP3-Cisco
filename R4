@@ -1,0 +1,37 @@
+enable
+conf t
+no ip domain-lookup
+line con 0
+    logging synchronous
+    exit
+hostname R4
+
+banner motd $
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+        MON NOM EST JEAN
+    LA PUISSANCE DU YAOURT !!
+    AAAAAAAAAAAAAAAAAAAHHHHHH
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+$
+
+interface s0/0/0
+    ip add 192.168.1.202 255.255.255.252
+    clock rate 64000
+    no shut
+    exit
+
+interface s0/0/1
+    ip add 192.168.1.198 255.255.255.252
+    clock rate 64000
+    no shut
+    exit
+
+interface fa0/0
+    ip add 192.168.1.65 255.255.255.192
+    no shut
+    exit
+    
+end
+copy running-config startup-config
+
+exit
