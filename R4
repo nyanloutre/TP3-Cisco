@@ -1,6 +1,3 @@
-ssh -l cisco 192.168.1.198
-cisco
-
 enable
 conf t
 
