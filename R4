@@ -21,6 +21,8 @@ ip domain-name test.qc.ca
 
 crypto key generate rsa
 
+aaa new-model
+
 line vty 0 4
     transport input ssh
     exit
