@@ -20,6 +20,8 @@ service password-encryption
 ip domain-name test.qc.ca
 
 aaa new-model
+aaa authorization exec default local
+aaa authentication login default local
 
 line vty 0 4
     transport input ssh
