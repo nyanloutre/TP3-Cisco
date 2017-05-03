@@ -19,8 +19,6 @@ username cisco privilege 15 password 0 cisco
 service password-encryption
 ip domain-name test.qc.ca
 
-crypto key generate rsa
-
 aaa new-model
 
 line vty 0 4
