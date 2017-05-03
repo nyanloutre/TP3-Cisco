@@ -1,10 +1,5 @@
 enable
 conf t
-no ip domain-lookup
-line con 0
-    logging synchronous
-    exit
-hostname R4
 
 banner motd $
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -13,6 +8,22 @@ banner motd $
     AAAAAAAAAAAAAAAAAAAHHHHHH
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 $
+
+no ip domain-lookup
+line con 0
+    logging synchronous
+    exit
+hostname R4
+
+username cisco privilege 15 password 0 cisco
+service password-encryption
+ip domain-name test.qc.ca
+
+crypto key generate rsa
+
+line vty 0 4
+    transport input ssh
+exit
 
 interface s0/0/0
     ip add 192.168.1.202 255.255.255.252
