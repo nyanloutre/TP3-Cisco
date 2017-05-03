@@ -5,6 +5,7 @@ line con 0
     logging synchronous
     exit
 hostname R3
+
 banner motd $
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         MON NOM EST JEAN
@@ -12,23 +13,25 @@ banner motd $
     AAAAAAAAAAAAAAAAAAAHHHHHH
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 $
+
+interface s0/0/0
+    ip add 192.168.1.194 255.255.255.252
+    clock rate 64000
+    no shut
+    exit
+
+interface s0/0/1
+    ip add 192.168.1.201 255.255.255.252
+    clock rate 64000
+    no shut
+    exit
+
 interface fa0/0
-    ip add 10.0.0.26 255.255.255.248
-    ipv6 add fd00:0:0:4::2/64
+    ip add 192.168.1.1 255.255.255.192
     no shut
     exit
-interface fa0/1
-    ip add 10.0.0.33 255.255.255.248
-    ipv6 add fd00:0:0:5::1/64
-    no shut
-    exit
-router ospf 53
-    network 10.0.0.32 0.0.0.7 area 0
-    network 10.0.0.24 0.0.0.7 area 0
+    
 end
 copy running-config startup-config
-
-clear ip ospf process
-yes
 
 exit
